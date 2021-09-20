@@ -86,6 +86,8 @@ platform(:ios) do
 
   desc('Create a new beta build to TestFlight')
   lane(:create_build) do
+    init_app
+    
     build_setup
 
     settings_to_override = {
