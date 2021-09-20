@@ -143,12 +143,12 @@ jobs:
 
       - checkout
 
-      - run:
-          name: Check if app has a paid plan
-          command: |
-            if [ "$HAS_PAID_PLAN" != 1 ]; then
-              exit 1
-            fi
+      # - run:
+      #     name: Check if app has a paid plan
+      #     command: |
+      #       if [ "$HAS_PAID_PLAN" != 1 ]; then
+      #         exit 1
+      #       fi
 
       - run:
           name: set Ruby version
@@ -192,7 +192,7 @@ jobs:
 
       - run:
           name: Install MacOS ffi
-          command: gem inst ffi -- --disable-system-libffi
+          command: gem inst ffi -v '1.15.1' -- --disable-system-libffi
           working_directory: ios
 
       - run:
